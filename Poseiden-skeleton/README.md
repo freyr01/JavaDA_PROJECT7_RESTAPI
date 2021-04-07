@@ -1,4 +1,4 @@
-# Puddy
+# Poseidon
 A Spring Boot application for collecting datas of bid/ask financial obligation
 
 This application use different technologies to achieve his purpose like:
