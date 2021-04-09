@@ -9,11 +9,13 @@ import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import java.sql.Date;
 
 @Entity
 @Table(name = "bidlist")
-public class BidList {
+public class Bid {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,17 +31,18 @@ public class BidList {
 
 	@Digits(integer = 10, fraction = 2)
 	@Min(value = 1)
+	@NotNull
 	private Double bidQuantity;
 	
 	private Double askQuantity;
-	
+
 	private Double bid;
-	
+
 	private Double ask;
 	
 	@Length(max = 125, message = Const.CONSTRAINT_MESSAGE_125CHAR)
 	private String benchmark;
-	
+
 	private Date bidListDate;
 	
 	@Length(max = 125, message = Const.CONSTRAINT_MESSAGE_125CHAR)
@@ -59,7 +62,7 @@ public class BidList {
 	
 	@Length(max = 125, message = Const.CONSTRAINT_MESSAGE_125CHAR)
 	private String creationName;
-	
+
 	private Date creationDate;
 	
 	@Length(max = 125, message = Const.CONSTRAINT_MESSAGE_125CHAR)
@@ -81,10 +84,10 @@ public class BidList {
 	
 	
 	
-	public BidList() {
+	public Bid() {
 	}
 
-	public BidList(String account, String type, Double bidQuantity) {
+	public Bid(String account, String type, Double bidQuantity) {
 		this.account = account;
 		this.type = type;
 		this.bidQuantity = bidQuantity;
